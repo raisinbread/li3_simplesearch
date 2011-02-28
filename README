@@ -1,0 +1,49 @@
+/*=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-*/
+    Introduction
+/*=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-*/
+
+SimpleSearch is a learning experiment of mine to try to solve the problem of not having offline searches for documentation. This plugin for the Lithium PHP Framework has the following (rough) features:
+
+1. URL crawling/fetching
+2. Content stemming for better fulltext-like search results
+3. Pre-processing for simple ranked results
+
+/*=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-*/
+    Installation
+/*=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-*/
+
+1. Download this plugin and install at app/libraries/li3_simplesearch
+
+2. Add this to app/config/bootstrap/libraries.php:
+
+     Libraries::add('li3_simplesearch');
+
+/*=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-*/
+    Basic Usage
+/*=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-*/
+
+Crawl your site:
+
+li3 crawl --url=http://lithify.me
+
+Make sure you've got data:
+
+li3 search
+
+Perform a query:
+
+li3 search query terms go here
+
+/*=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-*/
+    TODOs
+/*=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-*/
+
+1. Optimize crawling process to use many fetches in parallel
+
+2. Fix ranking algorithm. Placeholder logic right now adds term weights rather than multiplies them. No native aggregate product function in Sqlite3 right now. 
+
+3. Better model interface for searching in a real app.
+
+4. Better custom query support in Term model for response objects rather than arrays.
+
+5. General performance improvements and elegance refactors.
